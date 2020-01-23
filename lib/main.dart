@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blood_app/screens/sign_up.dart';
-import 'package:blood_app/constants.dart';
+import 'package:blood_app/screens/post.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SignUp(),
+      home: Post(),
     );
   }
 }

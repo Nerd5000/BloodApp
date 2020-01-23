@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
 
-class SignUp extends StatefulWidget {
+class Post extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _PostState createState() => _PostState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _PostState extends State<Post> {
   String _value;
   @override
   Widget build(BuildContext context) {
@@ -28,16 +28,35 @@ class _SignUpState extends State<SignUp> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            'Your Age',
-                            style: TextStyle(fontSize: 20.0),
+                      Theme(
+                        data: ThemeData(
+                          primaryColor: redLightBlood,
+                        ),
+                        child: TextField(
+                          textAlign: TextAlign.center,
+                          onChanged: (String value) {},
+                          keyboardType: TextInputType.text,
+                          cursorColor: redLightBlood,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.person),
+                            counterText: '',
+                            focusColor: redLightBlood,
+                            border: OutlineInputBorder(
+                              gapPadding: 4.0,
+                            ),
+                            labelText: 'Name',
+                            hintText: 'Full Name',
                           ),
-                          Container(
-                            height: 60.0,
-                            width: 60.0,
+                          autofocus: false,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.0,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
                             child: Theme(
                               data: ThemeData(
                                 primaryColor: redLightBlood,
@@ -45,33 +64,35 @@ class _SignUpState extends State<SignUp> {
                               child: TextField(
                                 textAlign: TextAlign.center,
                                 onChanged: (String value) {},
-                                keyboardType: TextInputType.number,
-                                maxLength: 2,
+                                keyboardType: TextInputType.text,
                                 cursorColor: redLightBlood,
                                 decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.location_on),
                                   counterText: '',
                                   focusColor: redLightBlood,
                                   border: OutlineInputBorder(
                                     gapPadding: 4.0,
                                   ),
-                                  labelText: 'Age',
-                                  hintText: 'Age',
+                                  labelText: 'Hospital',
+                                  hintText: 'Hospital',
                                 ),
                                 autofocus: false,
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 20.0,
-                          )
+                          Expanded(
+                            flex: 1,
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.add_location,
+                                color: redLightBlood,
+                                size: 30.0,
+                              ),
+                              tooltip: 'Increase volume by 10',
+                              onPressed: () {},
+                            ),
+                          ),
                         ],
-                      ),
-                      SizedBox(
-                        height: 40.0,
-                      ),
-                      Text(
-                        'Select Your Type',
-                        style: TextStyle(fontSize: 20.0),
                       ),
                       SizedBox(
                         height: 20.0,
@@ -128,8 +149,8 @@ class _SignUpState extends State<SignUp> {
                 onPressed: () {},
               ),
               SizedBox(
-                height: 10.0,
-              )
+                height: 20.0,
+              ),
             ],
           ),
         ),
