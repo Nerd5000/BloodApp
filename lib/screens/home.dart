@@ -24,8 +24,8 @@ class _HomeState extends State<Home> {
             title: Text('Ask'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.place),
-            title: Text('Emergency'),
+            icon: Icon(Icons.description),
+            title: Text('After Donation'),
           ),
         ],
         currentIndex: _index,
