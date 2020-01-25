@@ -8,6 +8,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _index = 0;
+
+ 
+  @override
+  void initState() {
+    super.initState();
+   
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
