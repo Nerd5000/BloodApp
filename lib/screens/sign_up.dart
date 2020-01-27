@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
 import 'package:blood_app/screens/home.dart';
+import 'package:blood_app/components/choice_chip.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -115,33 +116,8 @@ class _SignUpState extends State<SignUp> {
                           ),
                           Theme(
                             data: ThemeData(primaryColor: Colors.white),
-                            child: Wrap(
-                              alignment: WrapAlignment.center,
-                              runSpacing: 10.0,
-                              spacing: 10.0,
-                              children: List<Widget>.generate(
-                                8,
-                                (int index) {
-                                  return ChoiceChip(
-                                    padding: EdgeInsets.all(5),
-                                    selectedColor: redLightBlood,
-                                    tooltip: 'Select The Type',
-                                    avatar: Icon(
-                                      Icons.whatshot,
-                                      color: redIconColor,
-                                    ),
-                                    label: Text(bloodTypes[index]),
-                                    selected: _value == bloodTypes[index],
-                                    onSelected: (bool selected) {
-                                      setState(() {
-                                        _value = bloodTypes[index];
-                                      });
-                                    },
-                                  );
-                                },
-                              ).toList(),
-                            ),
-                          )
+                            child: ChoiceChipCU(),
+                          ),
                         ],
                       ),
                     ),
