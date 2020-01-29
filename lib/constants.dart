@@ -4,6 +4,8 @@ import 'package:blood_app/screens/post.dart';
 import 'package:blood_app/screens/numbers.dart';
 import 'package:blood_app/screens/tips.dart';
 
+bool signed = false;
+
 final List<Widget> screens = [
   Numbers(),
   Post(),

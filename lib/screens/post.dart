@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
 import 'package:blood_app/components/choice_chip.dart';
+import 'package:blood_app/components/submit_button.dart';
 
 class Post extends StatefulWidget {
   @override
@@ -8,7 +9,6 @@ class Post extends StatefulWidget {
 }
 
 class _PostState extends State<Post> {
-  String _value;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -104,24 +104,7 @@ class _PostState extends State<Post> {
                 ),
               ),
             ),
-            RaisedButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              padding: EdgeInsets.symmetric(
-                horizontal: 40.0,
-                vertical: 10.0,
-              ),
-              child: Text(
-                'Submit',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30.0,
-                ),
-              ),
-              color: redLightBlood,
-              onPressed: () {},
-            ),
+            SubmitButton(onPressed: (){},),
             SizedBox(
               height: 20.0,
             ),

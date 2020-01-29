@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:blood_app/screens/sign_up.dart';
 import 'package:blood_app/screens/home.dart';
+import 'package:blood_app/constants.dart';
 
 class NavigatorCU extends StatefulWidget {
   @override
@@ -9,8 +10,6 @@ class NavigatorCU extends StatefulWidget {
 }
 
 class _NavigatorCUState extends State<NavigatorCU> {
-  bool signed = false;
-
   void getInfo() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     int counter = prefs.getInt('age');
@@ -23,11 +22,11 @@ class _NavigatorCUState extends State<NavigatorCU> {
   @override
   initState() {
     super.initState();
-    getInfo();
+    //getInfo();
   }
 
   @override
   Widget build(BuildContext context) {
-    return signed ? Home() : SignUp();
+    return SignUp();
   }
 }

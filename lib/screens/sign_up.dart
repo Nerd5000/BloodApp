@@ -1,3 +1,4 @@
+import 'package:blood_app/components/submit_button.dart';
 import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
 import 'package:blood_app/screens/home.dart';
@@ -11,8 +12,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  String _value;
-
   int age = 0;
   String textAge = '';
   bool showPage = true;
@@ -45,116 +44,111 @@ class _SignUpState extends State<SignUp> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: showPage
-          ? SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  Card(
-                    margin: EdgeInsets.all(20.0),
-                    color: Colors.white,
-                    elevation: 5.0,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(30.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              Text(
-                                'Your Age',
-                                style: TextStyle(fontSize: 20.0),
-                              ),
-                              Container(
-                                height: 60.0,
-                                width: 60.0,
-                                child: Theme(
-                                  data: ThemeData(
-                                    primaryColor: redLightBlood,
-                                  ),
-                                  child: TextField(
-                                    textAlign: TextAlign.center,
-                                    onChanged: (String value) {
-                                      setState(() {
-                                        textAge = value;
-                                      });
-                                    },
-                                    keyboardType: TextInputType.number,
-                                    maxLength: 2,
-                                    cursorColor: redLightBlood,
-                                    decoration: InputDecoration(
-                                      counterText: '',
-                                      focusColor: redLightBlood,
-                                      border: OutlineInputBorder(
-                                        gapPadding: 4.0,
-                                      ),
-                                      labelText: 'Age',
-                                      hintText: 'Age',
+    return Scaffold(
+      backgroundColor: redBackground,
+      body: Center(
+        child: showPage
+            ? SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    Card(
+                      margin: EdgeInsets.all(20.0),
+                      color: Colors.white,
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(30.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(
+                                  'Your Age',
+                                  style: TextStyle(fontSize: 20.0),
+                                ),
+                                Container(
+                                  height: 60.0,
+                                  width: 60.0,
+                                  child: Theme(
+                                    data: ThemeData(
+                                      primaryColor: redLightBlood,
                                     ),
-                                    autofocus: false,
+                                    child: TextField(
+                                      textAlign: TextAlign.center,
+                                      onChanged: (String value) {
+                                        setState(() {
+                                          textAge = value;
+                                        });
+                                      },
+                                      keyboardType: TextInputType.number,
+                                      maxLength: 2,
+                                      cursorColor: redLightBlood,
+                                      decoration: InputDecoration(
+                                        counterText: '',
+                                        focusColor: redLightBlood,
+                                        border: OutlineInputBorder(
+                                          gapPadding: 4.0,
+                                        ),
+                                        labelText: 'Age',
+                                        hintText: 'Age',
+                                      ),
+                                      autofocus: false,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 20.0,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: 40.0,
-                          ),
-                          Text(
-                            'Select Your Type',
-                            style: TextStyle(fontSize: 20.0),
-                          ),
-                          SizedBox(
-                            height: 20.0,
-                          ),
-                          Theme(
-                            data: ThemeData(primaryColor: Colors.white),
-                            child: ChoiceChipCU(),
-                          ),
-                        ],
+                                SizedBox(
+                                  width: 20.0,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: 40.0,
+                            ),
+                            Text(
+                              'Select Your Type',
+                              style: TextStyle(fontSize: 20.0),
+                            ),
+                            SizedBox(
+                              height: 20.0,
+                            ),
+                            Theme(
+                              data: ThemeData(primaryColor: Colors.white),
+                              child: ChoiceChipCU(),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20.0),
+                    SubmitButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Home(),
+                          ),
+                        );
+                        // setState(() {
+                        //   signed = true;
+                        //     showPage = false;
+                        //     age = int.parse(textAge);
+                        //     age < 18 || _value != ''
+                        //         ? fToast('You\'re Too YOUNG')
+                        //         : setInfo(age, _value);
+                        // });
+                      },
                     ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 40.0,
-                      vertical: 10.0,
-                    ),
-                    child: Text(
-                      'Submit',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 30.0,
-                      ),
-                    ),
-                    color: redLightBlood,
-                    onPressed: () {
-                      setState(() {
-                        showPage = false;
-                        age = int.parse(textAge);
-                        age < 18 || _value != ''
-                            ? fToast('You\'re Too YOUNG')
-                            : setInfo(age, _value);
-                      });
-                    },
-                  ),
-                  SizedBox(
-                    height: 10.0,
-                  )
-                ],
-              ),
-            )
-          : CircularProgressIndicator(backgroundColor: redLightBlood),
+                    SizedBox(
+                      height: 10.0,
+                    )
+                  ],
+                ),
+              )
+            : CircularProgressIndicator(backgroundColor: redLightBlood),
+      ),
     );
   }
 }
