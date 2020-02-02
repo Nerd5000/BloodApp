@@ -33,7 +33,7 @@ class _NavigatorCUState extends State<NavigatorCU> {
       navigateAfterSeconds: SignUp(),
       title: Text('Blood Donation App'),
       loadingText: Text('Loading...'),
-      image: Image.asset('assets/images/photo.png',),
+      image: Image.asset('assets/images/logo.png',),
       backgroundColor: redBackground,
       styleTextUnderTheLoader: new TextStyle(),
       photoSize: 50.0,
