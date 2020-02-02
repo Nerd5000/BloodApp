@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:splashscreen/splashscreen.dart';
 import 'package:blood_app/screens/sign_up.dart';
 import 'package:blood_app/screens/home.dart';
 import 'package:blood_app/constants.dart';
@@ -27,6 +28,16 @@ class _NavigatorCUState extends State<NavigatorCU> {
 
   @override
   Widget build(BuildContext context) {
-    return SignUp();
+    return SplashScreen(
+      seconds: 14,
+      navigateAfterSeconds: SignUp(),
+      title: Text('Blood Donation App'),
+      loadingText: Text('Loading...'),
+      image: Image.asset('assets/images/photo.png',),
+      backgroundColor: redBackground,
+      styleTextUnderTheLoader: new TextStyle(),
+      photoSize: 50.0,
+      loaderColor: redLightBlood,
+    );
   }
 }
