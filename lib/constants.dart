@@ -33,6 +33,23 @@ const Map<String, String> emergencyPhone = {
   '128': 'Traffic Police',
 };
 
+const List<String> emergencyPhoneNumbers = [
+  '123',
+  '122',
+  '180',
+  '121',
+  '129',
+  '128',
+];
+const List<String> emergencyPhoneSubtype = [
+  'Main Ambulance',
+  'Emergency Police',
+  'Fire Fighters',
+  'Electricity Emergency',
+  'Natural Gas Emergency',
+  'Traffic Police',
+];
+
 const List<String> tips = [
   'Keep the strip bandage on for the next several hours; to avoid a skin rash, clean the area around the bandage with soap and water.',
   'Don’t do any heavy lifting or vigorous exercise for the rest of the day.',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
+import 'package:blood_app/components/generated_column.dart';
 
 class Tips extends StatefulWidget {
   @override
@@ -7,37 +8,10 @@ class Tips extends StatefulWidget {
 }
 
 class _TipsState extends State<Tips> {
-  
-  List<Widget> listTileItems = [];
-
-  void listTile() {
-    for (String i in tips) {
-      listTileItems.add(
-        ListTile(
-          leading: Icon(Icons.brightness_1),
-          title: Text(i),
-        ),
-      );
-      listTileItems.add(
-        Divider(
-          thickness: 1,
-        ),
-      );
-    }
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    listTile();
-    super.initState();
-  }
-
-  
   @override
   Widget build(BuildContext context) {
     return Center(
-      child:  SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             Card(
@@ -49,8 +23,12 @@ class _TipsState extends State<Tips> {
               ),
               child: Padding(
                 padding: EdgeInsets.all(30.0),
-                child: Column(
-                  children: listTileItems,
+                child: GeneratedColumnCU(
+                  icon: Icon(
+                    Icons.brightness_1,
+                  ),
+                  itemsList: tips,
+                  subTypeList: null,
                 ),
               ),
             ),
@@ -63,5 +41,3 @@ class _TipsState extends State<Tips> {
     );
   }
 }
-
-

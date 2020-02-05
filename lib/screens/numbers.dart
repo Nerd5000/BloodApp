@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
+import 'package:blood_app/components/generated_column.dart';
 
 class Numbers extends StatefulWidget {
   @override
@@ -7,31 +8,6 @@ class Numbers extends StatefulWidget {
 }
 
 class _NumbersState extends State<Numbers> {
-  List<Widget> listTileItems = [];
-  void listTile() {
-    for (String i in emergencyPhone.keys) {
-      listTileItems.add(
-        ListTile(
-          leading: Icon(Icons.call),
-          title: Text(i),
-          subtitle: Text(emergencyPhone[i]),
-        ),
-      );
-      listTileItems.add(
-        Divider(
-          thickness: 1,
-        ),
-      );
-    }
-    setState(() {});
-  }
-
-  @override
-  void initState() {
-    listTile();
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -47,8 +23,10 @@ class _NumbersState extends State<Numbers> {
               ),
               child: Padding(
                 padding: EdgeInsets.all(30.0),
-                child: Column(
-                  children: listTileItems,
+                child: GeneratedColumnCU(
+                  icon: Icon(Icons.call),
+                  itemsList: emergencyPhoneNumbers,
+                  subTypeList: emergencyPhoneSubtype,
                 ),
               ),
             ),
