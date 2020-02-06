@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:blood_app/components/choice_chip.dart';
 import 'package:blood_app/components/submit_button.dart';
 import 'package:blood_app/constants.dart';
 import 'package:blood_app/screens/home.dart';
-import 'package:blood_app/components/choice_chip.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:blood_app/services/shared_prefrences_cu.dart';
+import 'package:blood_app/services/show_toast.dart';
+import 'package:flutter/material.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -11,21 +12,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  int age = 0;
   String textAge = '';
   bool showPage = true;
-
-  void fToast(String msg) {
-    Fluttertoast.showToast(
-      msg: msg,
-      toastLength: Toast.LENGTH_LONG,
-      gravity: ToastGravity.BOTTOM,
-      timeInSecForIos: 1,
-      backgroundColor: redLightBlood,
-      textColor: Colors.white,
-      fontSize: 16.0,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,13 +97,21 @@ class _SignUpState extends State<SignUp> {
               ),
               SubmitButton(
                 onPressed: () {
-                  fToast('Signed');
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => Home(),
-                    ),
-                  );
+                  if (int.parse(textAge) < 18) {
+                    fToast('You Must Be older Than 18');
+                  } else {
+                    SPCustomized().setString(
+                      key: 'type',
+                      value: ChoiceChipCU.value,
+                    );
+                    fToast('Signed');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Home(),
+                      ),
+                    );
+                  }
                 },
               ),
               SizedBox(

@@ -62,6 +62,7 @@ const List<String> tips = [
 // Color redDarkBlood = Color(0xffAC0404);
 // Color redLightBlood = Color(0xffED1C24);
 Color redBackground = Color(0xffE3B0A4);
+Color white=Colors.white;
 
 Color redDarkBlood = Color(0xff990926);
 Color redLightBlood = Color(0xffFF0F3F);
