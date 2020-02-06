@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:blood_app/constants.dart';
 
 class ChoiceChipCU extends StatefulWidget {
+  static String value;
+
   @override
   _ChoiceChipCUState createState() => _ChoiceChipCUState();
 }
 
 class _ChoiceChipCUState extends State<ChoiceChipCU> {
-  String _value;
   @override
   Widget build(BuildContext context) {
     return Wrap(
@@ -26,10 +27,10 @@ class _ChoiceChipCUState extends State<ChoiceChipCU> {
               color: redIconColor,
             ),
             label: Text(bloodTypes[index]),
-            selected: _value == bloodTypes[index],
+            selected: ChoiceChipCU.value == bloodTypes[index],
             onSelected: (bool selected) {
               setState(() {
-                _value = bloodTypes[index];
+                ChoiceChipCU.value = bloodTypes[index];
               });
             },
           );
